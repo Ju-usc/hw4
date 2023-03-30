@@ -463,17 +463,18 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
     Value val = keyValuePair.second; 
 
     if(empty()){
-        Node<Key, Value> *node = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, NULL);
+        Node<Key, Value> *node = new Node<Key, Value>(key, val, NULL);
         root_ = node;
     }
   
     else{
         Node<Key, Value> *parent = findCorrectParent(key, root_);
-        Node<Key, Value> *node = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, parent);
         if(key > parent->getKey()){
+            Node<Key, Value> *node = new Node<Key, Value>(key, val, parent);
             parent->setRight(node);
         }
         else if(key < parent->getKey()){
+            Node<Key, Value> *node = new Node<Key, Value>(key, val, parent);
             parent->setLeft(node);
         }
         else if(key == parent->getKey()){
@@ -796,8 +797,6 @@ int BinarySearchTree<Key, Value>::height(Node<Key, Value>* root) const{
         return -1;
     }
     return std::max(rh, lh) + 1;
-
-    
 }
 
 
