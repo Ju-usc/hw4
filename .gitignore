@@ -1,5 +1,12 @@
 hw4_tests/
 bst-test
 equal-paths-test
+avl-test
+avltest
+.vscode/
+equal-paths-test.dSYM/
+hw4_tests.tar.gz.1
+avl-test.cpp
+bst-test.cpp
 *.o
 
